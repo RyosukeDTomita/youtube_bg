@@ -1,3 +1,5 @@
+<!-- vim: set sw=2 ts=2 sts=2: -->
+<!doctype html>
 <html>
   <head>
   <meta charset="utf-8">
@@ -8,15 +10,15 @@
 
   <title>play youtube bg</title>
   </head>
- 
   <body>
-    <form action="play/background/" method="post">
+    <form action="/play/background/" method="post">
       {% csrf_token %}
       <div>
         <label for="url">url</label>
-        <input type="text" id="url" name="url" placeholder="paste youtube url">
+        <!--<input type="text" id="url" name="url" placeholder="paste youtube url">-->
+        <input type="text" id="url" name="url" placeholder={{ message }}> <!--アプリのviews.pyのcontextから受け取った値がmessageに格納される-->
       </div>
-      <input type="submit" value="バックグラウンドで再生する">
+      <input type="submit" value="Play">
     </form>
   </body>
 </html>

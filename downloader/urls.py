@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import use_youtube_dl
+from .views import PlayMusic
 
 
 urlpatterns = [
-        path('background/', use_youtube_dl)
+        path('background/',
+             PlayMusic.as_view(),
+             name='get_url'),
         ]

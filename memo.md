@@ -12,6 +12,10 @@
 - views.pyに函数を追加する。
 - プロジェクトのsettings.pyに入り，templatesのパスを通す。
 - プロジェクトやアプリの格納されているディレクトリと同じ場所にtemplates/を作成
+- urls.pyにClass PlayMusicを作成し，メソッドを定義する。[Viewを継承したクラスのメソッドの名前付けルール](https://zenn.dev/ikemo/articles/django-http-method-names)
 
 ## やること
-- 画面から引数を受け取れるようにする。--> models.pyにモデルを作ってivews.pyにインポートする。
+
+
+## 気づいたこと
+- Viewを継承したクラスに対してas.view()を実行するとすべてのメソッドが実行される? --> ブラウザの再読込ではGETメソッドが実行されない。GETは検索欄にurlを入れてアクセスした時に実行されると思われる。
