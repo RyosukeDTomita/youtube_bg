@@ -11,14 +11,16 @@
   <title>play youtube bg</title>
   </head>
   <body>
-    <form action="/play/background/" method="post">
+    <form action="/music/dl/" method="post">
       {% csrf_token %}
       <div>
         <label for="url">url</label>
-        <!--<input type="text" id="url" name="url" placeholder="paste youtube url">-->
         <input type="text" id="url" name="url" placeholder={{ message }}> <!--アプリのviews.pyのcontextから受け取った値がmessageに格納される-->
+        <input type="submit" value="prepare">
+        <!--<audio id="audio" loop>
+          <source src="tmp.mp3"></source>
+        </audio>-->
       </div>
-      <input type="submit" value="Play">
     </form>
   </body>
 </html>
