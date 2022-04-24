@@ -22,21 +22,22 @@ class MusicDl(View):
             'message': message
         }
         try:
-            youtube_dl.main(['-x', '--audio-format', 'mp3', '-o', 'tmp.mp3', url])
-            self._rename_music()
-            self._play_music()
+            youtube_dl.main(['-x', '--audio-format', 'mp3', url])
         except:
             message = "Unused url."
+        os.remove("tmp.mp3")
+        self._rename_music()
+        self._play_music()
         return render(request, 'get_url.html', context)
 
     def _play_music(self):
         tmp = AudioSegment.from_file("/home/tomita/youtube_bg/tmp.mp3")
         play(tmp)
-        os.remove("../tmp.mp3")
 
     def _rename_music(self):
-        file_list = os.listdir("../")
+        file_list = os.listdir()
         for file_ in file_list:
+            print(file_)
             if "mp3" in file_:
                 os.rename(file_, "tmp.mp3")
 
